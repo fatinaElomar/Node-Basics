@@ -88,8 +88,13 @@ function quit(){
   process.exit();
  
 }
+/**
+ * help:Lists all the commands
+ *
+ * @returns {void}
+ */
 function help(){
-  console.log('hello:Says hello\nhelp:Lists all the possible commands\nhello:Exits the application');
+  console.log('hello:Says hello\nquit:Exits the app\nquit:Exits the app\n');
 
 }
 
