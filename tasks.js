@@ -80,3 +80,4 @@ function quit(){
 
 // The following line starts the application
 startApp("Fatina Elomar")
+// add exit
