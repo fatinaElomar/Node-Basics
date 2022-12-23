@@ -33,14 +33,16 @@ function startApp(name) {
  */
 function onDataReceived(text) {
   if (text === "quit\n" || text === "exit\n") {
-    text =text.replace('\n',' ');
+    text = text.replace("\n", " ");
     quit();
-  }
-  else if (text.startsWith('hello')|| text ===("hello\n")) {
-   hello(text)
-
+  } else if (text.startsWith("hello") || text === "hello\n") {
+    hello(text);
   } else if (text === "help\n") {
     help();
+  } else if (text === "help\n") {
+    add();
+  } else if (text === "list\n") {
+    list();
   } else {
     unknownCommand(text);
   }
@@ -78,7 +80,7 @@ function unknownCommand(c) {
  */
 function hello(text) {
   //  var txt = text.substring()
-  console.log(text.trim()+'!');
+  console.log(text.trim() + "!");
 }
 /**
  * hello !
@@ -102,9 +104,16 @@ function quit() {
  * @returns {void}
  */
 function help() {
-  console.log("hello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n");
+  console.log(
+    "hello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
+  );
 }
 
+function list() {
+  let tasks = ["add", "remove", "edit", "change"];
+  tasks.map((i)=>
+ console.log(tasks.indexOf(i)+1+" "+i));
+}
 // The following line starts the application
 startApp("Fatina Elomar");
 // add exit
