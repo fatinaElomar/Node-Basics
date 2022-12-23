@@ -127,6 +127,10 @@ function remove(text) {
   if (text.slice(6).trim() == "") {
     tasks.pop();
   } else {
+  }
+  if(parseInt(text.substring(6))>tasks.length){
+    console.log("number doesn't exist")}
+    else{
     tasks.splice(parseInt(text.substring(6)) - 1, 1);
   }
 }
