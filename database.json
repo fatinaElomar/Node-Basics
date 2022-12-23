@@ -1,20 +1,18 @@
 [
-    {
-      "task1": "add",
-      "done": false
-    },
-    {
-      "task1": "remove",
-      "done": false
-    },
-    {
-      "task1": "edit",
-      "done": false
-    },
-    {
-      "task1": "change",
-      "done": false
-    }
-    
-
-  ]
+  {
+    "task1": "add",
+    "done": true
+  },
+  {
+    "task1": "remove",
+    "done": true
+  },
+  {
+    "task1": "edit",
+    "done": true
+  },
+  {
+    "task1": "change",
+    "done": true
+  }
+]

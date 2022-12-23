@@ -1,0 +1,17 @@
+[
+  { 
+    "task": "wakeup early", 
+     "done": true },
+  {
+     "task": "breackfast", 
+     "done": false },
+  {
+     "task": "sport", 
+      "done": false },
+  { 
+    "task": "study",
+    "done": true },
+  {
+     "task": "sleep", 
+     "done": true }
+]

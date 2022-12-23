@@ -1,6 +1,21 @@
 var fs = Require ('fs');
 var data = fs.readFileSync('database.json');
 var task1 = JSON.parse(data);
+
+
+var fs = Require ('fs');
+
+try{
+  if (fs.existsSync(process.argv[2])){
+    var data = fs.readFileSync(process.argv[2]);
+  }else{
+    var data = fs.readFileSync('database.json');
+  }
+  var task1 = JSON.parse(data);
+}
+catch(errors){
+  console.error(errors);
+}
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -106,8 +121,9 @@ function hello(text) {
  */
 function quit() {
   var data= JSON.stringify(task1, null, 2)
-  fs.writeFileSync('database.json',data, 'utf8');
-  console.log("Quitting now, goodbye!");
+  if (fs.existsSync(process.argv[2])){
+    fs.writeFileSync(process.argv[2],data, 'utf8');
+  }else fs.writeFileSync('database.json',data, 'utf8');  console.log("Quitting now, goodbye!");
   process.exit();
 }
 
@@ -184,9 +200,16 @@ function uncheck(text) {
     console.log("error");
   } else {
     tasks[parseInt(text.slice(8).trim()) - 1].done = false;
+    
   }
 }
-
+let listnew = [
+  { task: "wakeup early", done: true },
+  { task: "breackfast", done: false },
+  { task: "sport", done: false },
+  { task: "study", done: true },
+  { task: "sleep", done: true },
+];
 // The following line starts the application
 startApp("Fatina Elomar");
 // add exit
