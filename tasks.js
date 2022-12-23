@@ -107,7 +107,7 @@ function quit() {
  */
 function help() {
   console.log(
-    "hello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
+    "add:add new element to list\nremove:remove the last element from list\nremove1:remove first element from list\n remove2:remove the second elemnet from list\nhello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
   );
 }
 let tasks = ["add", "remove", "edit", "change"];
