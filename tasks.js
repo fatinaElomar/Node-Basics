@@ -47,13 +47,11 @@ function onDataReceived(text) {
     remove(text);
   } else if (text.startsWith("edit")) {
     edit(text);
-   } else if(text.startsWith('check')){
-      check(text)
-    }
-    else if(text.startsWith('uncheck')){
-      uncheck(text)
-    }
-   else {
+  } else if (text.startsWith("check")) {
+    check(text);
+  } else if (text.startsWith("uncheck")) {
+    uncheck(text);
+  } else {
     unknownCommand(text);
   }
 }
@@ -115,9 +113,10 @@ function quit() {
  */
 function help() {
   console.log(
-    "add:add new element to list\nremove:remove the last element from list\nremove1:remove first element from list\n remove2:remove the second elemnet from list\nhello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
+    "add:add new element to list\nremove:remove the last element from list\nremove1:remove first element from list\n remove2:remove the second elemnet from list\nhello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\ncheck:task is done\nuncheck:to uncheck task is not done"
   );
 }
+
 let tasks = ["add", "remove", "edit", "change"];
 
 function list() {
@@ -167,20 +166,21 @@ function edit(text) {
   }
 }
 
-function check(text){
-  if(text.slice(5).trim()==""){
-    console.log("error")
-  }else{
-    tasks[parseInt(text.slice(6).trim())-1].done =true;
+function check(text) {
+  if (text.slice(5).trim() == "") {
+    console.log("error");
+  } else {
+    tasks[parseInt(text.slice(6).trim()) - 1].done = true;
   }
 }
-//uncheck 
-function uncheck(text){
-  if(text.slice(7).trim()==""){
-    console.log("error")
-  }else{
-    tasks[parseInt(text.slice(8).trim())-1].done =false;
-  }}
+//uncheck
+function uncheck(text) {
+  if (text.slice(7).trim() == "") {
+    console.log("error");
+  } else {
+    tasks[parseInt(text.slice(8).trim()) - 1].done = false;
+  }
+}
 
 // The following line starts the application
 startApp("Fatina Elomar");
