@@ -47,7 +47,13 @@ function onDataReceived(text) {
     remove(text);
   } else if (text.startsWith("edit")) {
     edit(text);
-  } else {
+   } else if(text.startsWith('check')){
+      check(text)
+    }
+    else if(text.startsWith('uncheck')){
+      uncheck(text)
+    }
+   else {
     unknownCommand(text);
   }
 }
@@ -112,8 +118,8 @@ function help() {
     "add:add new element to list\nremove:remove the last element from list\nremove1:remove first element from list\n remove2:remove the second elemnet from list\nhello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
   );
 }
-//let tasks = ["add", "remove", "edit", "change"];
-let tasks = [];
+let tasks = ["add", "remove", "edit", "change"];
+
 function list() {
   tasks.map((i) => console.log(tasks.indexOf(i) + 1 + " " + i));
 }
@@ -160,6 +166,21 @@ function edit(text) {
     tasks[parseInt(text.trim().split(" ")[1]) - 1] = text.substring(6);
   }
 }
+
+function check(text){
+  if(text.slice(5).trim()==""){
+    console.log("error")
+  }else{
+    tasks[parseInt(text.slice(6).trim())-1].done =true;
+  }
+}
+//uncheck 
+function uncheck(text){
+  if(text.slice(7).trim()==""){
+    console.log("error")
+  }else{
+    tasks[parseInt(text.slice(8).trim())-1].done =false;
+  }}
 
 // The following line starts the application
 startApp("Fatina Elomar");
