@@ -1,3 +1,6 @@
+var fs = Require ('fs');
+var data = fs.readFileSync('database.json');
+var task1 = JSON.parse(data);
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -102,6 +105,8 @@ function hello(text) {
  * @returns {void}
  */
 function quit() {
+  var data= JSON.stringify(task1, null, 2)
+  fs.writeFileSync('database.json',data, 'utf8');
   console.log("Quitting now, goodbye!");
   process.exit();
 }
