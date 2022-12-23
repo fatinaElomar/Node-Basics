@@ -102,7 +102,7 @@ function quit() {
  * @returns {void}
  */
 function help() {
-  console.log("hello:Says hello\nquit:Exits the app\nquit:Exits the app\n");
+  console.log("hello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n");
 }
 
 // The following line starts the application
