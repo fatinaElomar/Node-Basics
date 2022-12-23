@@ -39,12 +39,12 @@ function onDataReceived(text) {
     hello(text);
   } else if (text === "help\n") {
     help();
-  } 
-  else if (text === 'add\n' || text.startsWith('add') ){
+  } else if (text === "add\n" || text.startsWith("add")) {
     add(text);
-  } 
-  else if (text === "list\n") {
+  } else if (text === "list\n") {
     list();
+  } else if (text.startsWith("remove")) {
+    remove(text);
   } else {
     unknownCommand(text);
   }
@@ -113,19 +113,23 @@ function help() {
 let tasks = ["add", "remove", "edit", "change"];
 
 function list() {
-  tasks.map((i)=>
- console.log(tasks.indexOf(i)+1+" "+i));
+  tasks.map((i) => console.log(tasks.indexOf(i) + 1 + " " + i));
 }
-function add(text){
-  if
-    (text.slice(3).trim() == "" )
-    console.log("Error")
-
+function add(text) {
+  if (text.slice(3).trim() == "") console.log("Error");
   else {
-    tasks.push(text.slice(3).trim())
-    console.log("")
- }}
+    tasks.push(text.slice(3).trim());
+    console.log("");
+  }
+}
 
+function remove(text) {
+  if (text.slice(6).trim() == "") {
+    tasks.pop();
+  } else {
+    tasks.splice(parseInt(text.substring(6)) - 1, 1);
+  }
+}
 
 // The following line starts the application
 startApp("Fatina Elomar");
