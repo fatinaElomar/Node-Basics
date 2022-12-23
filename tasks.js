@@ -45,8 +45,8 @@ function onDataReceived(text) {
     list();
   } else if (text.startsWith("remove")) {
     remove(text);
-  }else if(text.startsWith('edit')){
-    edit(text)
+  } else if (text.startsWith("edit")) {
+    edit(text);
   } else {
     unknownCommand(text);
   }
@@ -112,11 +112,25 @@ function help() {
     "add:add new element to list\nremove:remove the last element from list\nremove1:remove first element from list\n remove2:remove the second elemnet from list\nhello text:give hello text!\nhello:Says hello!\nquit:Exits the app\nquit:Exits the app\n"
   );
 }
-let tasks = ["add", "remove", "edit", "change"];
-
+//let tasks = ["add", "remove", "edit", "change"];
+let tasks = [];
 function list() {
   tasks.map((i) => console.log(tasks.indexOf(i) + 1 + " " + i));
 }
+/**
+ * list tasks
+ *
+ * @returns {void}
+ */
+var done = false;
+function lista() {
+  tasks.forEach(function callarray(val, n1) {
+    if (done) {
+      console.log(n1 + 1 + " - [✓] " + val);
+    } else console.log(n1 + 1 + " - [ ] " + val);
+  });
+}
+
 function add(text) {
   if (text.slice(3).trim() == "") console.log("Error");
   else {
@@ -130,24 +144,22 @@ function remove(text) {
     tasks.pop();
   } else {
   }
-  if(parseInt(text.substring(6))>tasks.length){
-    console.log("number doesn't exist")}
-    else{
+  if (parseInt(text.substring(6)) > tasks.length) {
+    console.log("number doesn't exist");
+  } else {
     tasks.splice(parseInt(text.substring(6)) - 1, 1);
   }
 }
-function edit(text)
- {  if (text === 'edit\n'){
+function edit(text) {
+  if (text === "edit\n") {
     console.log("error!");
+  } else if (isNaN(parseInt(text.trim().split(" ")[1]))) {
+    console.log("edit new text");
+    tasks[tasks.length - 1] = text.substring(5, text.length);
+  } else {
+    tasks[parseInt(text.trim().split(" ")[1]) - 1] = text.substring(6);
   }
-   else if (isNaN(parseInt((text.trim().split(" ")[1])))){
-    console.log("edit new text")
-   tasks[tasks.length-1] = text.substring(5,text.length)
-   }
-   else {
-    tasks[parseInt(text.trim().split(" ")[1])-1]= text.substring(6)
-   }
- }
+}
 
 // The following line starts the application
 startApp("Fatina Elomar");
