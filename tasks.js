@@ -45,6 +45,8 @@ function onDataReceived(text) {
     list();
   } else if (text.startsWith("remove")) {
     remove(text);
+  }else if(text.startsWith('edit')){
+    edit(text)
   } else {
     unknownCommand(text);
   }
@@ -134,6 +136,18 @@ function remove(text) {
     tasks.splice(parseInt(text.substring(6)) - 1, 1);
   }
 }
+function edit(text)
+ {  if (text === 'edit\n'){
+    console.log("error!");
+  }
+   else if (isNaN(parseInt((text.trim().split(" ")[1])))){
+    console.log("edit new text")
+   tasks[tasks.length-1] = text.substring(5,text.length)
+   }
+   else {
+    tasks[parseInt(text.trim().split(" ")[1])-1]= text.substring(6)
+   }
+ }
 
 // The following line starts the application
 startApp("Fatina Elomar");
